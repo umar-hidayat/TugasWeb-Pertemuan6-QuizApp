@@ -3,8 +3,6 @@
 
 Aplikasi kuis interaktif berbasis web (*Single Page Application*) yang dirancang untuk menguji pengetahuan seputar arsitektur **Data Engineering** (SQL/NoSQL, Data Pipeline, Apache Kafka, Spark, Airflow, Data Lakehouse, dan CAP Theorem). 
 
-Proyek ini dibangun sebagai penyelesaian **Tugas Rutin 6 - Mata Kuliah Pemrograman Web** (Semester Ganjil 2026/2027, Universitas Negeri Medan).
-
 ---
 
 ## 🛠️ Fitur Utama
