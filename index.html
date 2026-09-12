@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Rutin 6 - Interactive Quiz App (Data Engineering Edition)</title>
+    <!-- Google Fonts: Inter & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <!-- Terminal Header / Title -->
+        <div class="quiz-header">
+            <div class="de-tag">/// DATA PIPELINE KNOWLEDGE BASE</div>
+            <h1>Data Engineering Quiz</h1>
+            <div class="status-indicator">
+                <span class="dot pulse"></span> SYSTEM STATUS: ONLINE
+            </div>
+        </div>
+
+        <!-- Content Quiz -->
+        <div class="quiz-content">
+            <!-- Progress Soal -->
+            <div id="progress">STAGE 01/10</div>
+
+            <!-- Teks Soal -->
+            <div id="question"></div>
+
+            <!-- Container Pilihan Jawaban -->
+            <div id="options" class="options-grid"></div>
+
+            <!-- Tombol Next -->
+            <button id="nextBtn" class="hidden">Next Stage →</button>
+        </div>
+
+        <!-- Panel Hasil Akhir -->
+        <div id="result" class="hidden">
+            <div class="result-badge">PIPELINE EXECUTION COMPLETE</div>
+            <h2>Final Score: <span id="score"></span></h2>
+            <p>High Score: <span id="highScore"></span></p>
+            <button id="restartBtn">Re-run Pipeline 🔄</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

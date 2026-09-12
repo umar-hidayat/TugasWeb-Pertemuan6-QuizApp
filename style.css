@@ -1,0 +1,246 @@
+/* Custom Properties / Design Tokens */
+:root {
+    --bg-main: #0b0f19;
+    --card-bg: #111827;
+    --card-border: #1f2937;
+    --accent-cyan: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.15);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --correct-bg: rgba(16, 185, 129, 0.15);
+    --correct-border: #10b981;
+    --correct-text: #34d399;
+    --wrong-bg: rgba(239, 68, 68, 0.15);
+    --wrong-border: #ef4444;
+    --wrong-text: #f87171;
+    --font-sans: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'Fira Code', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+}
+
+/* Container utama dengan efek border & shadow khas Dashboard Data */
+.quiz-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent-glow);
+    width: 100%;
+    max-width: 650px;
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Border Accent Top Line */
+.quiz-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #38bdf8, #10b981, #6366f1);
+}
+
+/* Header Section */
+.quiz-header {
+    text-align: center;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--card-border);
+}
+
+.de-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.quiz-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.status-indicator {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+}
+
+.dot.pulse {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Progress Indicator */
+#progress {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent-cyan);
+    margin-bottom: 12px;
+    font-weight: 600;
+    background: rgba(56, 189, 248, 0.08);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Teks Soal */
+#question {
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: #f3f4f6;
+}
+
+/* Grid & Tombol Opsi Jawaban */
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.option-btn {
+    background-color: #1f2937;
+    color: var(--text-primary);
+    border: 1px solid #374151;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.option-btn:hover:not([disabled]) {
+    background-color: #2b374e;
+    border-color: var(--accent-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Visual Feedback Status (Hijau & Merah) */
+.option-btn.correct {
+    background-color: var(--correct-bg) !important;
+    border-color: var(--correct-border) !important;
+    color: var(--correct-text) !important;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.option-btn.wrong {
+    background-color: var(--wrong-bg) !important;
+    border-color: var(--wrong-border) !important;
+    color: var(--wrong-text) !important;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+.option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.85;
+}
+
+/* Action Buttons (Next & Restart) */
+#nextBtn, #restartBtn {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+}
+
+#nextBtn:hover, #restartBtn:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+}
+
+/* Result Dashboard Screen */
+#result {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.result-badge {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: #10b981;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+#result h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+#result p {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--accent-cyan);
+    margin-bottom: 28px;
+    background: rgba(56, 189, 248, 0.08);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px dashed rgba(56, 189, 248, 0.3);
+}
+
+/* Utility State Class */
+.hidden {
+    display: none !important;
+}
