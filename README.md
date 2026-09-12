@@ -16,15 +16,6 @@ Proyek ini dibangun sebagai penyelesaian **Tugas Rutin 6 - Mata Kuliah Pemrogram
 - **Visual Feedback System:** Indikator warna hijau (benar) dan merah (salah) yang responsif seketika jawaban dipilih.
 - **DE Terminal UI Theme:** Tampilan antarmuka berestetika *Dark Mode Pipeline Monitoring Dashboard*.
 
----
-
-## 📸 Preview UI
-
-| Quiz Interface | Result & High Score |
-| :---: | :---: |
-| *Tampilan Stage Soal & Opsi Jawaban* | *Tampilan Skor Akhir & Record LocalStorage* |
-
----
 
 ## 📂 Struktur Proyek
 
